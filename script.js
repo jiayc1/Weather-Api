@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function() { //document to load 
     $("#search-button").on("click", function() {
       var searchValue = $("#search-value").val();
   
@@ -74,12 +74,12 @@ $(document).ready(function() {
               var card = $("<div>").addClass("card");
               var body = $("<div>").addClass("card-body");
   
-              var title = $("<h5>").addClass("card-title").text(moment(data.list[i].dt_txt).format('dddd'));                    // Thursday
+              var title = $("<h5>").addClass("card-title").text(moment(data.list[i].dt_txt).format('dddd'));                    // Added moment.js 
             
   
               var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
               
-              var p0 = $("<p>").addClass("card-text").text(data.list[i].weather[0].description);
+              var p0 = $("<p>").addClass("card-text").text(data.list[i].weather[0].description); //added description
               var p1 = $("<p>").addClass("card-text").text("Temp: " + data.list[i].main.temp_max + " °F");
               var p2 = $("<p>").addClass("card-text").text("Humidity: " + data.list[i].main.humidity + "%");
               var p3 = $("<p>").addClass("card-text").text("Wind: " + data.list[i].wind.speed + "mph"); // added wind 
@@ -125,9 +125,22 @@ $(document).ready(function() {
     if (history.length > 0) {
       searchWeather(history[history.length-1]);
     }
-  
+
+    //clear storage 
+    var clearhistory = function(){
+        localStorage.clear()
+    }
+
+    $("#clear-button").on("click", function() {
+        clearhistory()
+        $(".list-group").empty()
+        history=[] // clear list 
+        $("#today").empty()
+        $("#forecast").empty()
+    
+      })
+
     for (var i = 0; i < history.length; i++) {
       makeRow(history[i]);
     }
   });
-  
