@@ -1,5 +1,7 @@
 # Weather-Api
-# Acceptance Criteria
+
+Website Link: https://jiayc1.github.io/Weather-Api/
+## Acceptance Criteria
 
 ![Alt text](img/search.png?raw=true "search")
 
