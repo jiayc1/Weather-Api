@@ -20,7 +20,7 @@ $(document).ready(function() { //document to load
     function searchWeather(searchValue) {
       $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=45d9bc395c98b9f324d709c3199e2ad8&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=45d9bc395c98b9f324d709c3199e2ad8&units=imperial",
         dataType: "json",
         success: function(data) {
           // create history link for this search
@@ -41,7 +41,7 @@ $(document).ready(function() { //document to load
           var humid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
           var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " °F");
           var cardBody = $("<div>").addClass("card-body");
-          var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+          var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
   
           // merge and add to page
           title.append(img);
@@ -59,7 +59,7 @@ $(document).ready(function() { //document to load
     function getForecast(searchValue) {
       $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=45d9bc395c98b9f324d709c3199e2ad8&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=45d9bc395c98b9f324d709c3199e2ad8&units=imperial",
         dataType: "json",
         success: function(data) {
           // overwrite any existing content with title and empty row
@@ -97,7 +97,7 @@ $(document).ready(function() { //document to load
     function getUVIndex(lat, lon) {
       $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/uvi?appid=45d9bc395c98b9f324d709c3199e2ad8&lat=" + lat + "&lon=" + lon,
+        url: "https://api.openweathermap.org/data/2.5/uvi?appid=45d9bc395c98b9f324d709c3199e2ad8&lat=" + lat + "&lon=" + lon,
         dataType: "json",
         success: function(data) {
           var uv = $("<p>").text("UV Index: ");
